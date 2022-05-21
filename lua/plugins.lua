@@ -154,6 +154,17 @@ function M.setup()
     use { "nathom/filetype.nvim" }
 
 
+    -- LSP
+    use {
+      "williamboman/nvim-lsp-installer",
+      {
+        "neovim/nvim-lspconfig",
+        config = function()
+          require("config.lsp").setup()
+        end,
+      }
+    }
+
     -- Bootstrap Neovim
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
