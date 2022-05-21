@@ -130,7 +130,7 @@ function M.setup()
       config = function()
         require("config.telescope").setup()
       end,
-      disable = true,
+      disable = false,
     }
 
     -- Performance

@@ -8,6 +8,9 @@ function M.setup()
 
   telescope.setup {
     defaults = {
+      layout_config = {
+        vertical = { width = 0.5 }
+      },
       mappings = {
         i = {
           -- map actions.which_key to <C-h> (default: <C-/>)
@@ -18,16 +21,13 @@ function M.setup()
       }
     },
     pickers = {
+      find_files = {
+        theme = "dropdown",
+      }
     },
     extensions = {
     }
   }
-
-  -- Find files using Telescope command-line sugar.
-  nnoremap <leader>ff <cmd>Telescope find_files<cr>
-  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-  nnoremap <leader>fb <cmd>Telescope buffers<cr>
-  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 end
 
 return M
