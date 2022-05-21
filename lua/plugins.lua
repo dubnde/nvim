@@ -8,7 +8,7 @@ function M.setup()
   local conf = {
     profile = {
       enable = true,
-      threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
+      threshold = 1,
     },
 
     display = {
@@ -84,6 +84,15 @@ function M.setup()
       end,
     }
 
+    -- WhichKey
+    use {
+      "folke/which-key.nvim",
+      event = "VimEnter",
+      config = function()
+        require("config.whichkey").setup()
+      end,
+    }
+
     -- IndentLine
     use {
       "lukas-reineke/indent-blankline.nvim",
@@ -95,6 +104,9 @@ function M.setup()
 
     -- Better surround
     use { "tpope/vim-surround", event = "InsertEnter" }
+    use 'tpope/vim-commentary'
+    use 'tpope/vim-repeat'
+    use 'tpope/vim-unimpaired'
 
     -- Buffer
     use { "kazhala/close-buffers.nvim", cmd = { "BDelete", "BWipeout" } }
@@ -102,12 +114,29 @@ function M.setup()
     -- Easy motion
     use {
       "phaazon/hop.nvim",
-      cmd = { "HopWord", "HopChar1" },
+      -- cmd = { "HopWord", "HopeLine", "HopChar1", "HopChar2", "HopWordAC", "HopWordBC", "HopeLineAC", "HopeLineBC" },
       config = function()
-        require("hop").setup {}
+        require("config.hop").setup()
+      end,
+    }
+
+    -- FZF
+    use { "junegunn/fzf", run = "./install --all", event = "VimEnter", disable = true }
+    use { "junegunn/fzf.vim", event = "BufEnter", disable = true }
+
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = { {'nvim-lua/plenary.nvim'} },
+      config = function()
+        require("config.telescope").setup()
       end,
       disable = true,
     }
+
+    -- Performance
+    use { "dstein64/vim-startuptime", cmd = "StartupTime" }
+    use { "nathom/filetype.nvim" }
+
 
     -- Bootstrap Neovim
     if packer_bootstrap then
