@@ -8,6 +8,11 @@ function M.setup()
 
   telescope.setup {
     defaults = {
+      file_ignore_patterns = {
+        "node_modules",
+        "build_*",
+        "tools/cmake",
+      },
       layout_config = {
         vertical = { width = 0.5 }
       },
