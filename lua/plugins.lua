@@ -133,6 +133,22 @@ function M.setup()
       disable = false,
     }
 
+    -- Some better syntax analysis
+    use { 'nvim-treesitter/nvim-treesitter',
+      opt = true,
+      event = "BufReadPre",
+      run = ':TSUpdate',
+      config = function()
+        require("config.treesitter").setup()
+      end,
+      requires = {
+        "nvim-treesitter/nvim-treesitter-textobjects" ,
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        "nvim-treesitter/nvim-treesitter-context",
+        "p00f/nvim-ts-rainbow",
+      },
+    }
+
     -- Performance
     use { "dstein64/vim-startuptime", cmd = "StartupTime" }
     use { "nathom/filetype.nvim" }
