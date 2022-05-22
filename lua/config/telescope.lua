@@ -27,12 +27,21 @@ function M.setup()
     },
     pickers = {
       find_files = {
-        theme = "dropdown",
+        theme = "ivy",
+      },
+      oldfiles = {
+        theme = "ivy",
+      },
+      git_files = {
+        theme = "ivy",
       }
     },
     extensions = {
     }
   }
+
+  -- telescope.load_extension("fzf")
+  -- telescope.load_extension("ui-select")
 end
 
 return M

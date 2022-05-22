@@ -6,7 +6,13 @@ function M.setup()
     return
   end
 
-  neogit.setup {}
+  neogit.setup {
+    disable_commit_confirmation = true,
+    disable_insert_on_commit = false,
+    integrations = {
+      diffview = true,
+    },
+  }
 end
 
 return M

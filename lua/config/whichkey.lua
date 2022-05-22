@@ -82,7 +82,7 @@ function M.setup()
   }
 
   local mappings = {
-    ["/"]       = { "<cmd>Telescope live_grep<cr>", "Grep" },
+    ["/"]       = { "<cmd>Telescope live_grep theme=ivy<cr>", "Grep" },
     [":"]       = { "<cmd>Commands<cr>", "Commands" },
     ["<TAB>"]   = { "<cmd>:bnext<cr>", "Next Buffer" },
     ["<S-TAB>"] = { "<cmd>:bprevious<cr>", "Previous Buffer" },
@@ -94,7 +94,7 @@ function M.setup()
 
     ["b"] = {
       name = "Buffers",
-      ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
+      ["b"] = { "<cmd>Telescope buffers theme=ivy<cr>", "Buffers" },
       ["d"] = { "<cmd>:q<cr>", "Delete" },
       ["n"] = { "<cmd>:bnext<cr>", "Next" },
       ["p"] = { "<cmd>:bprevious<cr>", "Previous" },
@@ -105,14 +105,19 @@ function M.setup()
     ["f"] = {
       name = "Files",
       ["e"] = { "<cmd>:luafile %<cr>", "Evaluate File" },
-      ["f"] = { "<cmd>Telescope find_files<cr>", "Find Files" },
-      ["g"] = { "<cmd>Telescope git_files<cr>", "Find Files" },
-      ["r"] = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
+      ["f"] = { "<cmd>Telescope find_files theme=ivy<cr>", "Find Files" },
+      ["g"] = { "<cmd>Telescope git_files theme=ivy<cr>", "Find Files" },
+      ["r"] = { "<cmd>Telescope oldfiles theme=ivy<cr>", "Recent Files" },
       ["s"] = { "<cmd>:w<cr>", "Save" },
       ["S"] = { "<cmd>:wa<cr>", "Save All" },
     },
 
-    ["g"] = { "<cmd>Neogit<cr>", "Git" },
+    ["g"] = {
+      name = "Git",
+      ["b"] = { "<cmd>Telescope git_branches theme=ivy<cr>", "Find Files" },
+      ["g"] = { "<cmd>Neogit<cr>", "Git" },
+      ["s"] = { "<cmd>Telescope git_status theme=ivy<cr>", "Find Files" },
+    },
 
     ["j"] = {
       name = "jump/join",
@@ -154,10 +159,8 @@ function M.setup()
     ["s"] = {
       name = "Search",
       ["c"] = { "<cmd>:nohl<cr>", "Clear Highlight" },
-      ["p"] = { "<cmd>GFiles<cr>", "Git Files" },
-      ["s"] = { "<cmd>BLines<cr>", "Search Buffers" },
-      ["S"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search Buffer" },
-      ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
+      ["s"] = { "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<cr>", "Search Buffer" },
+      ["b"] = { "<cmd>Telescope buffers theme=ivy<cr>", "Buffers" },
     },
 
     ["t"] = {

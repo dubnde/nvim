@@ -69,6 +69,10 @@ function M.setup()
     use {
       "TimUntersberger/neogit",
       cmd = "Neogit",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "sindrets/diffview.nvim",
+      },
       config = function()
         require("config.neogit").setup()
       end,
@@ -111,6 +115,16 @@ function M.setup()
     -- Buffer
     use { "kazhala/close-buffers.nvim", cmd = { "BDelete", "BWipeout" } }
 
+    -- Status line
+    use {
+      "nvim-lualine/lualine.nvim",
+      event = "VimEnter",
+      after = "nvim-treesitter",
+      config = function()
+        require("config.lualine").setup()
+      end,
+    }
+
     -- Easy motion
     use {
       "phaazon/hop.nvim",
@@ -126,7 +140,11 @@ function M.setup()
 
     use {
       'nvim-telescope/telescope.nvim',
-      requires = { {'nvim-lua/plenary.nvim'} },
+      requires = {
+        "nvim-lua/popup.nvim",
+        'nvim-lua/plenary.nvim',
+        "nvim-telescope/telescope-ui-select.nvim",
+      },
       config = function()
         require("config.telescope").setup()
       end,
