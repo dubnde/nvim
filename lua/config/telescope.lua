@@ -36,11 +36,17 @@ function M.setup()
         theme = "ivy",
       }
     },
-    extensions = {
-    }
+    -- extensions = {
+    --   project = {
+    --     base_dirs = {
+    --       '.vscode',
+    --     },
+    --     theme = "ivy"
+    --   },
+    -- },
   }
 
-  -- telescope.load_extension("fzf")
+  -- telescope.load_extension("project")
   -- telescope.load_extension("ui-select")
 end
 

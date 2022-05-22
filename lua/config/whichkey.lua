@@ -100,7 +100,10 @@ function M.setup()
       ["p"] = { "<cmd>:bprevious<cr>", "Previous" },
     },
 
-    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    ["e"] = {
+      name = "Explorer/Errors",
+      ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    },
 
     ["f"] = {
       name = "Files",
@@ -166,6 +169,7 @@ function M.setup()
     ["t"] = {
       name = "toggle",
       ["'"] = { "<cmd>ToggleTerm direction=float<cr>", "Terminal Float" },
+      ["e"] = { "<cmd>NvimTreeToggle<cr><cr>", "Terminal Float" },
       ["t"] = { "<cmd>ToggleTerm direction=float<cr>", "Terminal Float" },
     },
 

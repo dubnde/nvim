@@ -23,7 +23,23 @@ function M.setup()
     automatic_installation = true,
   }
 
-  config.sumneko_lua.setup {}
+  config.sumneko_lua.setup {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' }
+        },
+        workspace = {
+          -- So 'gf' can find the files
+          library = {
+            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            [vim.fn.stdpath("config") .. "/lua"] = true,
+          },
+        },
+      }
+    }
+  }
+
   config.cmake.setup {}
   config.rust_analyzer.setup {}
   config.pyright.setup {}

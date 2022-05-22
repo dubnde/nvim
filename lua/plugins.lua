@@ -115,6 +115,22 @@ function M.setup()
     -- Buffer
     use { "kazhala/close-buffers.nvim", cmd = { "BDelete", "BWipeout" } }
 
+    -- NVIM Tree
+    use {
+      "kyazdani42/nvim-tree.lua",
+      opt = true,
+      cmd = { "NvimTreeToggle", "NvimTreeClose" },
+      config = function()
+        require("config.nvimtree").setup()
+      end,
+    }
+
+    -- Terminal
+    use {"akinsho/toggleterm.nvim", tag = 'v1.*',
+    config = function()
+      require("toggleterm").setup()
+    end}
+
     -- Status line
     use {
       "nvim-lualine/lualine.nvim",
@@ -128,7 +144,6 @@ function M.setup()
     -- Easy motion
     use {
       "phaazon/hop.nvim",
-      -- cmd = { "HopWord", "HopeLine", "HopChar1", "HopChar2", "HopWordAC", "HopWordBC", "HopeLineAC", "HopeLineBC" },
       config = function()
         require("config.hop").setup()
       end,
@@ -140,14 +155,25 @@ function M.setup()
 
     use {
       'nvim-telescope/telescope.nvim',
-      requires = {
-        "nvim-lua/popup.nvim",
-        'nvim-lua/plenary.nvim',
-        "nvim-telescope/telescope-ui-select.nvim",
-      },
+      opt = true,
       config = function()
         require("config.telescope").setup()
       end,
+      cmd = { "Telescope" },
+      requires = {
+        "nvim-lua/popup.nvim",
+        'nvim-lua/plenary.nvim',
+        -- "nvim-telescope/telescope-project.nvim",
+        -- "nvim-telescope/telescope-smart-history.nvim",
+        -- "dhruvmanila/telescope-bookmarks.nvim",
+        -- "nvim-telescope/telescope-ui-select.nvim",
+        {
+          "ahmedkhalf/project.nvim",
+            config = function()
+              require("config.project").setup()
+            end,
+        },
+      },
       disable = false,
     }
 
