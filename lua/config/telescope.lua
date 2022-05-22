@@ -25,17 +25,17 @@ function M.setup()
         }
       }
     },
-    pickers = {
-      find_files = {
-        theme = "ivy",
-      },
-      oldfiles = {
-        theme = "ivy",
-      },
-      git_files = {
-        theme = "ivy",
-      }
-    },
+    -- pickers = {
+    --   find_files = {
+    --     theme = "ivy",
+    --   },
+    --   oldfiles = {
+    --     theme = "ivy",
+    --   },
+    --   git_files = {
+    --     theme = "ivy",
+    --   }
+    -- },
     -- extensions = {
     --   project = {
     --     base_dirs = {
