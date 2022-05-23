@@ -1,11 +1,11 @@
 local M = {}
 
-function M.setup()
-  local status_ok, telescope = pcall(require, "telescope")
-  if not status_ok then
-    return
-  end
+local status_ok, telescope = pcall(require, "telescope")
+if not status_ok then
+  return
+end
 
+function M.setup()
   telescope.setup {
     defaults = {
       file_ignore_patterns = {
@@ -25,30 +25,30 @@ function M.setup()
         }
       }
     },
-    -- pickers = {
-    --   find_files = {
-    --     theme = "ivy",
-    --   },
-    --   oldfiles = {
-    --     theme = "ivy",
-    --   },
-    --   git_files = {
-    --     theme = "ivy",
-    --   }
-    -- },
-    -- extensions = {
-    --   project = {
-    --     base_dirs = {
-    --       '.vscode',
-    --     },
-    --     theme = "ivy"
-    --   },
-    -- },
+    pickers = {
+      find_files = {
+        theme = "ivy",
+      },
+      oldfiles = {
+        theme = "ivy",
+      },
+      git_files = {
+        theme = "ivy",
+      }
+    },
+    extensions = {
+      project = {
+        base_dirs = {
+          '.vscode',
+        },
+        theme = "ivy"
+      },
+    },
   }
-
-  -- telescope.load_extension("project")
-  -- telescope.load_extension("ui-select")
 end
+
+telescope.load_extension("project")
+telescope.load_extension("ui-select")
 
 return M
 

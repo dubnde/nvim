@@ -163,10 +163,10 @@ function M.setup()
       requires = {
         "nvim-lua/popup.nvim",
         'nvim-lua/plenary.nvim',
-        -- "nvim-telescope/telescope-project.nvim",
+        "nvim-telescope/telescope-project.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
         -- "nvim-telescope/telescope-smart-history.nvim",
         -- "dhruvmanila/telescope-bookmarks.nvim",
-        -- "nvim-telescope/telescope-ui-select.nvim",
         {
           "ahmedkhalf/project.nvim",
             config = function()
